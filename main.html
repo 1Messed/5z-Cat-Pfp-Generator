@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cat PFP Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma,Geneva, Verdana, sans-serif;
+      background-color: #000000;
+      text-align: center;
+      padding: 20px;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .description {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #777;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .footer {
+      margin-top: 50px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .attribution {
+      margin-top: 20px;
+      color: #777;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="description">
+    <h1>Cat PFP Generator</h1>
+    <p>Create your own unique profile picture with just a click of a button. Discover a wide range of cat-themed avatars to use for your online profiles, social media, or any other personal use. Click the "Generate Cat PFP" button to get started!</p>
+  </div>
+
+  <div class="container">
+    <img src="" alt="Anime PFP" class="avatar">
+    <button class="button" onclick="generatePFP()">Generate Cat PFP</button>
+    <a href="#" download="anime_pfp.png" id="downloadButton" class="button">Download PFP</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2023 PFP Generator. All rights reserved.
+  </footer>
+
+  <div class="attribution">
+    Background image by <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">Freepik</a>
+  </div>
+
+  <script>
+    function generatePFP() {
+      const avatarImage = document.querySelector('.avatar');
+      const downloadButton = document.getElementById('downloadButton');
+      const apiUrl = 'https://robohash.org/';
+      const randomString = Math.random().toString(36).substring(7); // Generate a random string for the image URL
+      const imageUrl = `${apiUrl}${randomString}?set=set4`; // Use the 'set4' option for anime-style avatars
+
+      avatarImage.src = imageUrl;
+      downloadButton.href = imageUrl;
+    }
+  </script>
+</body>
+</html>
